@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Portfolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    /* Button animation */
+    @keyframes slideTop {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+        box-shadow: 0 0 0px #00efff;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: 0 0 5px #00efff;
+      }
+    }
+    .btn-box {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #00efff;
+      border-radius: 40px;
+      font-size: 14px;
+      color: #001b29;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0;
+      animation: slideTop 1s ease forwards;
+      animation-delay: 2s;
+      box-shadow: 0 0 5px #00efff, 0 0 25px #00efff;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease,
+        color 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-box:hover {
+      box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 100px cyan, 0 0 200px cyan;
+      background-color: #00c8d8;
+      color: #000814;
+      
+    }
+    nav a:hover {
+      color: #00efff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    .social-icon {
+      transition: color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .social-icon:hover {
+      color: #00efff;
+      transform: scale(1.2);
+    }
+    .profile-container:hover .glow {
+      box-shadow: 0 0 60px 15px #00efff, 0 0 90px 30px #d400ff;
+      transition: box-shadow 0.4s ease;
+    }
+    .nav-left {
+      font-weight: 700;
+    }
+    .nav-right {
+      margin-left: 60%;
+      display: flex;
+      gap: 1.5rem;
+      font-weight: 600;
+    }
+    #about h2,
+    #skills h2 {
+      color: #00efff;
+    }
+    #about p {
+      color: white !important;
+      
+    }
+    #skills {
+      background-color: #071422;
+      width: 100%;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      background: #0f1f33;
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    .skill-item:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9),
+        inset 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
+    .skill-icon {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4),
+        inset 0 -6px 10px rgba(255, 255, 255, 0.7);
+      filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+      transition: transform 0.3s ease;
+    }
+    .skill-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      filter:
+        drop-shadow(0 6px 5px rgba(0, 0, 0, 0.6))
+        drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+      z-index: 10;
+    }
+    .skill-name {
+      flex-grow: 0.1;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #dbf6fd;
+    }
+    .skill-percentage {
+      font-weight: 700;
+      font-size: 1.125rem;
+      min-width: 50px;
+      text-align: right;
+    }
+    .html {
+      color: #e34f26;
+    }
+    .css {
+      color: #264de4;
+    }
+    .javascript {
+      color: #f0db4f;
+      text-shadow: 1px 1px 2px #000;
+    }
+    .mysql {
+      color: #00758f;
+    }
+    .springboot {
+      color: #6db33f;
+    }
+    .progress-bar-container {
+      flex-grow: 2;
+      height: 18px;
+      background-color: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 4px rgb(0 0 0 / 0.6);
+      margin-right: 1rem;
+      max-width: 70%;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.6s ease;
+      box-shadow:
+        0 5px 8px rgba(0, 0, 0, 0.5),
+        inset 0 3px 6px rgba(255, 255, 255, 0.7);
+    }
+    .html-fill {
+      background: linear-gradient(90deg, #e34f26, #b03a1a);
+    }
+    .css-fill {
+      background: linear-gradient(90deg, #264de4, #1a2f7a);
+    }
+    .javascript-fill {
+      background: linear-gradient(90deg, #f0db4f, #bfae1a);
+    }
+    .mysql-fill {
+      background: linear-gradient(90deg, #00758f, #004f5a);
+    }
+    .springboot-fill {
+      background: linear-gradient(90deg, #6db33f, #4a6f27);
+    }
+    #skills > div.max-w-3xl {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #home {
+      margin: 0%;
+      padding: 5px;
+    }
+e {
+      margin-left: 300px;
+      padding: 30px;
+    }
+    /* Portfolio heading color same as About Me */
+    #portfolio h2 {
+      color: #00efff !important;
+    }
+    /* Portfolio content color white */
+    #portfolio p,
+    #portfolio h3 {
+      color: white !important;
+    }
+    /* Profile border shadow color change */
+    .profile-container img {
+      border-color: transparent;
+      box-shadow: 0 0 20px 6px #23a8c6; /* cyan-400 glow */
+      transition: box-shadow 0.3s ease;
+    }
+    .profile-container:hover img {
+     
+    }
+    /* Contact heading color cyan */
+    #contact h2 {
+      color: #00efff !important;
+    }
+    /* Contact content color white */
+    #contact p,
+    #contact label,
+    #contact input,
+    #contact textarea {
+      color: white !important;
+    }
+    #contact input,
+    #contact textarea {
+      background-color: #0a1a29 !important;
+    }
+    #profile {      
+      
+    }
+    #profile:hover {
+     
+    }
+    
+    .percentage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 17px;
+      font-weight: 500;
+      color: #00c8ff;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      transition: color 0.4s ease, transform 0.3s ease;
+    }
+    circle.progress-circle {
+      transition: stroke 0.4s ease, stroke-dashoffset 1s linear;
+      stroke: #00c8ff;
+      stroke-dasharray: 251.2;
+      stroke-linecap: round;
+      stroke-dashoffset: 251.2;
+    }
+    .hover-increase {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .hover-increase:hover {
+      transform: scale(1.1);
+    }
+    .creativity:hover circle.progress-circle {
+      stroke: #ff6f61;
+    }
+    .creativity:hover .percentage {
+      color: #ff6f61;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    .communication:hover circle.progress-circle {
+      stroke: #ff69b4;
+    }
+    .communication:hover .percentage {
+      color: #ff69b4;
+      transform: translate(-40%, -40%) scale(1.2);
+    }
+    .problem-solving:hover circle.progress-circle {
+      stroke: #f9d71c;
+    }
+    .problem-solving:hover .percentage {
+      color: #f9d71c;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    .teamwork:hover circle.progress-circle {
+      stroke: #34d399;
+    }
+    .teamwork:hover .percentage {
+      color: #34d399;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+     body {
+      background-color: #0a1a29;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+    .portfolio-title {
+      font-size: 1.5rem; /* text-2xl */
+      font-weight: 700; /* font-bold */
+      color: #00efff;
+      margin-bottom: 1rem; /* mb-4 */
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      cursor: pointer;
+      padding-bottom: 15px;
+    }
+   
+    .portfolio-card {
+      background-color: #0a1a29;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      box-shadow:
+        0 0 8px 2px rgba(0, 239, 255, 0.3),
+        0 8px 20px rgba(0, 239, 255, 0.15);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      color: white;
+    }
+    .portfolio-card:hover {   
+      box-shadow:
+        0 0 20px 6px rgba(32, 236, 195, 0.999),
+        0 12px 30px rgb(42, 255, 241);
+      transform: translateY(-6px);
+    }
+    .portfolio-card-small {
+      padding: 2.25rem;
+      
+    }
+    .portfolio-image {
+      width: 100%;
+      border-radius: 0.75rem;
+      object-fit: cover;
+      max-height: 150px;
+      box-shadow:
+        0 0 10px 2px rgba(0, 239, 255, 0.4);
+      transition: box-shadow 0.3s ease;
+    }
+  
+    .project-link {
+      margin-top: auto;
+      text-align: right;
+    }
+    .project-link a {
+      color: #00efff;
+      font-weight: 600;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    .project-link a:hover {
+      color: #59e9cc;
+    }
+    .profile-img {
+      border-radius: 0; /* square corners */
+      box-shadow: 0 8px 20px rgba(0, 112, 255, 0.6); /* strong blue glow shadow */
+      border: 4px solid #0070ff; /* bright blue border */
+      transition: transform 0.3s ease;
+      width: 220px;
+      height: 340px;
+      object-fit: cover;
+      position: relative;
+      z-index: 10;
+      display: block;
+    }
+    .profile-img:hover {
+      transform: scale(1.20) ;
+      box-shadow: 0 12px 30px rgba(0, 242, 255, 0.9);
+    }
+    @media (max-width: 768px) {
+      .profile-img {
+        width: 240px;
+        height: 200px;
+      }
+    }
+    /* Container for the profile image and corner border */
+    .profile-container {
+      position: relative;
+      margin-top: 2.5rem; /* mt-10 */
+      flex-shrink: 0;
+    }
+     .image {
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 4px solid transparent;
+    }
+    .image:hover {
+      box-shadow: 0 0 15px 5px rgba(0, 239, 255, 0.8);
+      border-color: black;
+    }
+      .profile-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .image {
+      display: block;
+      width: 320px;
+      height: 415px;
+      object-fit: cover;
+      border: 4px solid transparent;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      z-index: 10;
+      border-radius: 0.5rem;
+    }
+    .image:hover {
+      box-shadow: 0 0 15px 5px rgba(49, 230, 230, 0.942); /* orange shadow */
+      border-color: black;
+    }
+     .profile-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    /* Corners outside the image with increased distance */
+   
+     .corner-top-left {
+      position: absolute;
+      top: -35px;
+      left: -35px;
+      width: 80px;
+      height: 80px;
+      border-top: 8px solid #55ebff51; /* before hover color */
+      border-left: 8px solid #55ebff51;
+      box-sizing: border-box;
+      pointer-events: none;
+      border-radius: 0.25rem;
+      z-index: 20;
+      transition: all 0.3s ease;
+    }
+    .corner-bottom-right {
+      position: absolute;
+      bottom: -35px;
+      right: -35px;
+      width: 80px;
+      height: 80px;
+      border-bottom: 8px solid #55ebff51; /* before hover color */
+      border-right: 8px solid #55ebff51;
+      box-sizing: border-box;
+      pointer-events: none;
+      border-radius: 0.25rem;
+      z-index: 20;
+      transition: all 0.3s ease;
+    }
+    /* Fully increase length and change color on hover of wrapper */
+    .profile-wrapper:hover .corner-bottom-right {
+      width: 100%;
+      height: 100%;
+      bottom: -35px;
+      right: -35px;
+      border-bottom-width: 8px;
+      border-right-width: 8px;
+      border-bottom-color: #00efff; /* after hover color */
+      border-right-color: #00efff;
+      border-radius: 0;
+    }
+    .profile-wrapper:hover .corner-top-left {
+      width: 100%;
+      height: 100%;
+      top: -35px;
+      left: -35px;
+      border-top-width: 8px;
+      border-left-width: 8px;
+      border-top-color: #00efff; /* after hover color */
+      border-left-color: #00efff;
+      border-radius: 0;
+    }
+      .contact-container {
+      background-color: #071422;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 0 15px rgba(0, 239, 255, 0.5);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .contact-container:hover {
+      box-shadow: 0 0 30px rgba(0, 239, 255, 0.9);
+      transform: scale(1.05);
+    }
+ h2 {
+      color: #00efff;
+      font-weight: 700;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      border: none;
+      background-color: #0a1a29;
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      resize: vertical;
+      box-shadow: inset 0 0 5px rgba(0, 239, 255, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px 2px #00efff;
+      background-color: #071422;
+    }
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #00efff;
+      color: #001b29;
+      font-weight: 700;
+      font-size: 1.125rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00efff;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    button:hover {
+      background-color: #00c8d8;
+      box-shadow: 0 0 20px #00c8d8;
+      transform: scale(1.05);
+    }
+    .status-message {
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 600;
+      color: #00ffcc;
+      display: none;
+    }
+    .status-error {
+      color: #ff6b6b;
+    }
+ @keyframes moveUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+    .animate-moveUpDown {
+      animation: moveUpDown 3s ease-in-out infinite;
+    }
+  </style>
+ </head>
+ <body class="bg-[#0a1a29] text-white min-h-screen flex flex-col" >
+  <header class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto w-full">
+   <nav class="flex w-full">
+    <div class="nav-left text-sm md:text-base">
+     <a class="text-white" href="#" style=" font-style: italic;font-size: 1.75rem;">Portfolio.</a>
+    </div>
+    <div class="nav-right text-sm md:text-base ml-[50%]">
+     <a class="hover:underline" href="#home">Home</a>
+     <a class="hover:underline" href="#about">About</a>
+     <a class="hover:underline" href="#skills">Skills</a>
+     <a class="hover:underline" href="#portfolio">Portfolio</a>
+     <a class="hover:underline" href="#contact">Contact</a>
+     <a class="hover:underline" href="#education">Education</a>
+    </div>
+   </nav>
+  </header>
+  <section class="w-full h-20 bg-[#071421] flex items-center justify-center " class="wave-container" style="">
+     
+      
+      <h1 style=" border-color: transparent;transition: box-shadow 0.3s ease; color:rgb(13, 243, 247);"
+      class="text-4xl font-bold italic text-[1.75rem] text-[rgb(182,180,153)] transition-shadow duration-300 ease-in-out hover:shadow-lg animate-moveUpDown">
+      Welcome to  <span style="color: wheat;">My</span>Portfolio</h1>
+      
+      
+     </section><br /><br />
+  <main
+    class="flex flex-col md:flex-row items-center justify-between max-w-9xl mx-auto flex-grow px-5 md:px-10 py-10 gap-1 md:gap-0"
+    
+  >
+  
+<section class="max-w-xl flex flex-col space-y-1 md:space-y-5 "  class="max-w-7xl mx-auto px-6 md:px-12 py-12 text-white bg-[#071422]" id="home" style="padding-left: 0%; padding-right: 20%;">
+      <div class="text-content">
+        <h3>Hello, It's <span style="color: #00efff;">Me</span></h3>
+        <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">
+          Elavarasan R
+        </h1>
+        <h4>
+          <h5>
+            I am a
+            <span id="animated-text" class="text-cyan-400 font-bold"></span>
+          </h5>
+        </h4>
+        <p class="text-xs md:text-sm max-w-md">
+          I am a passionate fresher eager to build innovative web applicationsusing Java and modern fullstack technologies. Ready to learn, grow,
+          and contribute to impactful projects.
+        </p>
+
+        <div style="margin-left: 0;" class="flex space-x-6 mt-2">
+          <a aria-label="Facebook" class="social-icon text-cyan-400 text-lg" href="https://www.facebook.com/share/16LHVXd3kX/"><i class="fab fa-facebook-f"></i></a>
+          <a aria-label="X" class="social-icon text-cyan-400 text-lg" href="https://x.com/elavarasan27978?t=83RjurNCbSDeQe5kjnmdNw&s=09"><i class="fab fa-twitter"></i></a>
+
+          <a aria-label="Instagram" class="social-icon text-cyan-400 text-lg" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+          <a aria-label="LinkedIn" class="social-icon text-cyan-400 text-lg" href="https://www.linkedin.com/in/elavarasan69/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <a class="btn-box w-max mt-6" href="#about">More About Me </a>
+                                                    
+      </div>
+    </section>
+  
+ 
+ 
+ <div class="bg-[#0a1a29] flex justify-center items-center min-h-screen">
+  <div class="profile-wrapper">
+    <img
+      class="image"
+      height="415"
+      src="1746953226264.jpg"
+      width="320"
+    />
+    <div class="corner-top-left"></div>
+    <div class="corner-bottom-right"></div>
+  </div>
+
+
+  
+
+
+  
+  </main>
+  <script>
+    const texts = [
+      " Java Fullstack Developer",
+      " Backend Developer",
+      " Web Developer",
+      " Software Developer",
+    ];
+    let count = 0;
+    const animatedText = document.getElementById("animated-text");
+    animatedText.textContent = texts[0];
+    setInterval(() => {
+      count = (count + 1) % texts.length;
+      animatedText.textContent = texts[count];
+    }, 2000);
+
+    function animateCircleOnHover(container) {
+      const circle = container.querySelector('circle.progress-circle');
+      const percentage = container.querySelector('.percentage');
+      const maxDashOffset = 251.2;
+      const targetPercent = parseInt(percentage.style.getPropertyValue('--percent'), 10);
+
+      function animate() {
+        let start = null;
+        function step(timestamp) {
+          if (!start) start = timestamp;
+          const elapsed = timestamp - start;
+          const duration = 2000; // 2 seconds
+          const progress = Math.min(elapsed / duration, 1);
+          const currentPercent = Math.floor(progress * targetPercent);
+          const currentOffset = maxDashOffset * (1 - currentPercent / 100);
+
+          circle.style.strokeDashoffset = currentOffset;
+          percentage.textContent = currentPercent + '%';
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      function reset() {
+        circle.style.strokeDashoffset = maxDashOffset;
+        percentage.textContent = '0%';
+      }
+
+      container.addEventListener('mouseenter', () => {
+        animate();
+      });
+      container.addEventListener('mouseleave', () => {
+        reset();
+      });
+
+      reset();
+    }
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.hover-increase').forEach(container => {
+        animateCircleOnHover(container);
+      });
+    });
+     src="https://cdn.tailwindcss.com"
+  </script>
+
+  <section
+    style="display: inline; margin-top: 5%; margin-bottom: 5%; padding: 20px; background-color: #02111e; width: 100%; transition: box-shadow 0.3s ease;"
+    id="about"
+    class="max-w-7xl mx-auto px-6 md:px-12 py-12"
+  >
+    <h2 class="text-2xl font-bold mb-4" style="color:#65e7f3; height: 40%; font-style: italic;font-size: 1.75rem;">About Me</h2>
+    <p>
+      I am an enthusiastic Java Fullstack Developer with a strong passion for coding and problem-solving. I have a solid understanding of Java, Spring
+      Boot, and frontend technologies. I am committed to writing clean,efficient, and maintainable code. I enjoy collaborating with teams to build
+      scalable and user-friendly applications. Continuously learning new tools and frameworks to stay updated with industry trends. Eager to contribute my
+      skills and grow in a professional development environment.
+    </p>
+    <center><div> <a class="btn-box w-max mt-6" href="resume.html">view resume</a></div></center>
+  </section>
+  <section
+    id="skills"
+    class="max-w-7xl mx-auto px-6 md:px-12 py-12 text-white bg-[#071422]"
+    style="width: 100%"
+  >
+    <h2 class="text-2xl font-bold mb-6" style="color: #00efff  ; font-style: italic;font-size: 1.75rem;">Skills</h2>
+    <h1 class="text-xl font-semibold mb-1" style="color: #e357f0; text-align:center; padding-bottom:30px">Technical skills</h1>
+    <div class="skill-item">
+      <img
+        alt="Java logo"
+        class="skill-icon"
+        src="https://cdn-icons-png.flaticon.com/512/226/226777.png"
+      />
+      <span class="skill-name">Java</span>
+      <div class="progress-bar-container" aria-label="Java skill proficiency 100%">
+        <div class="progress-bar-fill" style="width: 95%;"></div>
+      </div>
+      <span class="skill-percentage">95%</span>
+    </div>
+    <div class="max-w-full">
+      <div class="skill-item">
+        <img
+          alt="HTML5 logo"
+          class="skill-icon"
+          src="https://cdn-icons-png.flaticon.com/512/732/732212.png"
+        />
+        <span class="skill-name">HTML</span>
+        <div class="progress-bar-container" aria-label="HTML skill proficiency 100%">
+          <div class="progress-bar-fill html-fill" style="width: 90%"></div>
+        </div>
+        <span class="skill-percentage html">90%</span>
+      </div>
+      <div class="skill-item">
+        <img
+          alt="CSS3 logo"
+          class="skill-icon"
+          src="https://cdn-icons-png.flaticon.com/512/732/732190.png"
+        />
+        <span class="skill-name">CSS</span>
+        <div class="progress-bar-container" aria-label="CSS skill proficiency 100%">
+          <div class="progress-bar-fill css-fill " style="width: 90%"></div>
+        </div>
+        <span class="skill-percentage css">90%</span>
+      </div>
+      <div class="skill-item">
+        <img
+          alt="JavaScript logo"
+          class="skill-icon"
+          src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png"
+        />
+        <span class="skill-name">JavaScript</span>
+        <div
+          class="progress-bar-container"
+          aria-label="JavaScript skill proficiency 100%"
+        >
+          <div class="progress-bar-fill javascript-fill" style="width: 80%"></div>
+        </div>
+        <span class="skill-percentage javascript">80%</span>
+      </div>
+      <div class="skill-item">
+        <img
+          alt="MySQL logo"
+          class="skill-icon"
+          src="https://cdn-icons-png.flaticon.com/512/5968/5968313.png"
+        />
+        <span class="skill-name">MySQL</span>
+        <div class="progress-bar-container" aria-label="MySQL skill proficiency 100%">
+          <div class="progress-bar-fill mysql-fill" style="width: 92%"></div>
+        </div>
+        <span class="skill-percentage mysql">92%</span>
+      </div>
+      <div class="skill-item">
+        <img
+          alt="Spring Boot logo"
+          class="skill-icon"
+          src="https://dz2cdn1.dzone.com/storage/temp/12434118-spring-boot-logo.png"
+        />
+        <span class="skill-name">Spring Boot</span>
+        <div
+          class="progress-bar-container"
+          aria-label="Spring Boot skill proficiency 100%"
+        >
+          <div class="progress-bar-fill springboot-fill" style="width: 95%"></div>
+        </div>
+        <span class="skill-percentage springboot">95%</span>
+      </div>
+    </div>
+    <section class="max-w-3xl mx-auto"><br /><br /><br />
+      <center>
+        <h1 class="text-xl font-semibold mb-1" style="color: #f057e1; text-align:center; padding-bottom:30px">Professional Skills</h1>
+        <div class="grid grid-cols-2 gap-x-12 gap-y-10 mt-10 max-w-md w-full">
+          <!-- Creativity -->
+          <div class="flex flex-col items-center text-white text-xs font-normal hover-increase creativity">
+            <span class="mb-2">Creativity</span>
+            <div class="relative w-20 h-20 progress-bar-container" aria-label="Spring Boot skill proficiency 100%">
+              <svg class="w-20 h-20" viewBox="0 0 100 100" style="">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#000" stroke-width="5"></circle>
+                <circle class="progress-circle" cx="50" cy="50" r="40" fill="none" stroke-width="5" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <div class="percentage" style="--percent:90">0%</div>
+            </div>
+          </div>
+          <!-- Communication -->
+          <div class="flex flex-col items-center text-white text-xs font-normal hover-increase communication">
+            <span class="mb-2">Communication</span>
+            <div class="relative w-20 h-20  progress-bar-container" aria-label="Spring Boot skill proficiency 100%">
+              <svg class="w-20 h-20" viewBox="0 0 100 100" style="">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#000" stroke-width="5"></circle>
+                <circle class="progress-circle" cx="50" cy="50" r="40" fill="none" stroke-width="5" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <div class="percentage" style="--percent:65">2%</div>
+            </div>
+          </div>
+          <!-- Problem Solving -->
+          <div class="flex flex-col items-center text-white text-xs font-normal hover-increase problem-solving">
+            <span class="mb-2">Problem Solving</span>
+            <div class="relative w-20 h-20 progress-bar-container" aria-label="Spring Boot skill proficiency 100%">
+              <svg class="w-20 h-20" viewBox="0 0 100 100" style="">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#000" stroke-width="5"></circle>
+                <circle class="progress-circle" cx="50" cy="50" r="40" fill="none" stroke-width="5" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <div class="percentage" style="--percent:75">0%</div>
+            </div>
+          </div>
+          <!-- Teamwork -->
+          <div class="flex flex-col items-center text-white text-xs font-normal hover-increase teamwork">
+            <span class="mb-2">Teamwork</span>
+            <div class="relative w-20 h-20 progress-bar-container" aria-label="Spring Boot skill proficiency 100%">
+              <svg class="w-20 h-20" viewBox="0 0 100 100" style="">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#000" stroke-width="5"></circle>
+                <circle class="progress-circle" cx="50" cy="50" r="40" fill="none" stroke-width="5" transform="rotate(-90 50 50)"></circle>
+              </svg>
+              <div class="percentage" style="--percent:95">0%</div>
+            </div>
+          </div>
+        </div>
+      </center>
+    </section><br /><br /><br />
+    <h2 class="portfolio-title" style=" font-style: italic;font-size: 1.75rem;"> Portfolio </h2>
+    <section>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl">
+        <div class="portfolio-card">
+          <img alt="Screenshot of Project 1 website showing portfolio homepage" class="portfolio-image" height="400" src="https://storage.googleapis.com/a1aa/image/63d09e2b-2b0b-43d7-9c74-7abb50d0dd4e.jpg" width="600" />
+          <h3 class="font-semibold text-lg mb-1">
+            My Project 1
+          </h3>
+          <p class="text-sm">
+            Create my portfolio using HTML, CSS, and JavaScript.
+          </p>
+          <div class="project-link">
+            <a href="https://example.com/project1" rel="noopener noreferrer" target="_blank">
+              View Project
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-card portfolio-card-small">
+          <img alt="Screenshot of Project 2 movie ticket website homepage" class="portfolio-image" height="400" src="https://storage.googleapis.com/a1aa/image/ce15417a-36d3-47a0-ac9c-8243dbc826f4.jpg" width="600" />
+          <h3 class="font-semibold text-lg mb-1">
+            Project 2
+          </h3>
+          <p class="text-sm">
+            Movie ticket website using Java, Spring Boot, and MySQL.
+          </p>
+          <div class="project-link">
+            <a href="https://example.com/project2" rel="noopener noreferrer" target="_blank">
+              View Project
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-card portfolio-card-small">
+          <img alt="Screenshot of Project 3 updated AI chat application interface" class="portfolio-image" height="400" src="https://storage.googleapis.com/a1aa/image/bf893e02-c3af-4727-3130-194a2c73820b.jpg" width="600" />
+          <h3 class="font-semibold text-lg mb-1">
+            Project 3
+          </h3>
+          <p class="text-sm">
+            AI summarization chat application using Django, HTML, CSS with AI.
+          </p>
+          <div class="project-link">
+            <a href="https://example.com/project3" rel="noopener noreferrer" target="_blank">
+              View Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section
+    id="education"
+    class="max-w-7xl mx-auto px-6 md:px-12 py-12 bg-[#071422]"
+    style="width: 100%"
+  >
+    <h2 class="text-2xl font-bold mb-4" style="color: #00efff; font-style: italic;font-size: 1.75rem;">Education</h2><br /><br /><br />
+    <div class="space-y-6 max-w-3xl mx-auto text-white">
+      <div class="bg-[#0f1f33] p-4 rounded-lg shadow-lg portfolio-card portfolio-card-small">
+        <h3 class="text-xl font-semibold mb-1" style="color: #ec4899;">Computer Science and Engineering</h3>
+        <p class="text-sm text-sky-400 mb-2">2021 - 2025</p>
+        <p>
+          M.I.E.T Engineering College ,Trichy-07.
+        </p>
+      </div>
+      <div class="bg-[#0f1f33] p-4 rounded-lg shadow-lg portfolio-card portfolio-card-small">
+        <h3 class="text-xl font-semibold mb-1" style="color: #ec4899;">E-commerce Website Project</h3>
+        <p class="text-sm text-sky-400 mb-2">2024 (1 month internship)</p>
+        <p>
+          Developed an e-commerce website during a one-month internship, utilizing modern web technologies and best practices.
+        </p>
+      </div>
+      <div class="bg-[#0f1f33] p-4 rounded-lg shadow-lg portfolio-card portfolio-card-small">
+        <h3 class="text-xl font-semibold mb-1" style="color: #ec4899;">Java Fullstack Web Development</h3>
+        <p class="text-sm text-sky-400 mb-2">2025 (3 months internship)</p>
+        <p>
+          Intensive training and hands-on internship focused on Java,html,css,spring MVC,Mysql,Hibernate, Spring Boot, and fullstack java development.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    id="contact"
+    class="max-w-7xl mx-auto px-6 md:px-12 py-12 transition-shadow bg-[#071422] rounded-lg"
+    style="width: 100%; align-content: center"
+  >
+    <h2 class="text-2xl font-bold mb-4 6" style="color: #00efff; font-style: italic;font-size: 1.75rem;">Contact</h2>
+   
+     <center clas="k">
+       <p class="max-w-3xl text-sm md:text-base mb-6 text-white">
+      Feel free to reach out to me via social media or email for any opportunities or collaborations.
+    </p>
+   <div class="contact-container">
+    
+    <form id="contactForm" onsubmit="return sendEmail(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required />
+
+      <label for="contact">Contact Number</label>
+      <input type="tel" id="contact" name="contact" placeholder="Your contact number" pattern="[0-9+\-\s]*" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+   
+    <p id="formStatus" class="status-message"></p>
+  </div>
+   </center>
+  </section>
+  <footer class="w-full max-w-7xl mx-auto px-6 py-4 flex justify-end"></footer>
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const contact = form.contact.value.trim();
+      const message = form.message.value.trim();
+      const status = document.getElementById('formStatus');
+
+      if (!name || !email || !message) {
+        status.textContent = 'Please fill in all required fields.';
+        status.classList.add('status-error');
+        status.style.display = 'block';
+        return false;
+      }
+
+      status.style.display = 'none';
+      status.classList.remove('status-error');
+
+      const emailBody = `
+        <strong>Name:</strong> ${name} <br/>
+        <strong>Email:</strong> ${email} <br/>
+        <strong>Contact Number:</strong> ${contact || 'N/A'} <br/>
+        <strong>Message:</strong> <br/>${message}
+      `;
+
+      Email.send({
+        SecureToken: "YOUR_SECURE_TOKEN_HERE", // Replace with your SMTPJS secure token
+        To: "mselava07@gmail.com",
+        From: "${email}",
+        Subject: `New message from ${name} via Portfolio Contact Form`,
+        Body: emailBody,
+      })
+        .then(function () {
+          status.textContent = "Message sent successfully! Thank you.";
+          status.classList.remove('status-error');
+          status.style.display = 'block';
+          form.reset();
+        })
+        .catch(function (error) {
+          status.textContent = "Failed to send message. Please try again later.";
+          status.classList.add('status-error');
+          status.style.display = 'block';
+          console.error(error);
+        });
+
+      return false;
+    }
+  </script>
+
+ </body>
+</html>

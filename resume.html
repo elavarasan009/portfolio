@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elavarasan Java Developer Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    /* Custom letter spacing for letter spaced text */
+    .tracking-widest-2 {
+      letter-spacing: 0.1em; /* reduced letter spacing */
+    }
+    /* 3D black background with subtle shadow */
+    .bg-3d-black {
+      background: linear-gradient(145deg, #000000, #1a1a1a);
+      box-shadow:
+        5px 5px 15px #0a0a0a,
+        -5px -5px 15px #1f1f1f;
+      border-radius: 0.375rem; /* rounded-md */
+      padding: 2.5rem 2.5rem; /* p-10 */
+    }
+    /* Heading color change and size/padding reduced */
+    h2, h1.main-heading {
+      color: rgb(96, 208, 5) !important; /* Tailwind amber-500 */
+      transition: color 0.3s ease;
+      font-size: 2.5rem; /* reduced size */
+      padding-top: 0.25rem; /* reduced padding */
+      padding-bottom: 0.25rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      letter-spacing: 0.1em !important; /* override letter spacing */
+    }
+    h2:hover, h1.main-heading:hover {
+      color: #b45309 !important; /* Tailwind amber-700 */
+      cursor: pointer;
+    }
+    /* 3D icon styles with distinct colors */
+    .icon-3d {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .icon-3d.fas.fa-phone-square-alt {
+      background: linear-gradient(145deg, #ef4444, #b91c1c); /* red */
+      box-shadow:
+        3px 3px 5px #7f1d1d,
+        -3px -3px 5px #f87171;
+    }
+    .icon-3d.fas.fa-phone-square-alt:hover {
+      background: linear-gradient(145deg, #b91c1c, #ef4444);
+      box-shadow:
+        inset 3px 3px 5px #7f1d1d,
+        inset -3px -3px 5px #f87171;
+      cursor: pointer;
+    }
+    .icon-3d.fas.fa-envelope {
+      background: linear-gradient(145deg, #3b82f6, #1e40af); /* blue */
+      box-shadow:
+        3px 3px 5px #1e3a8a,
+        -3px -3px 5px #60a5fa;
+    }
+    .icon-3d.fas.fa-envelope:hover {
+      background: linear-gradient(145deg, #1e40af, #3b82f6);
+      box-shadow:
+        inset 3px 3px 5px #1e3a8a,
+        inset -3px -3px 5px #60a5fa;
+      cursor: pointer;
+    }
+    .icon-3d.fas.fa-map-marker-alt {
+      background: linear-gradient(145deg, #f59e0b, #b45309); /* amber */
+      box-shadow:
+        3px 3px 5px #7c2d12,
+        -3px -3px 5px #fbbf24;
+    }
+    .icon-3d.fas.fa-map-marker-alt:hover {
+      background: linear-gradient(145deg, #b45309, #f59e0b);
+      box-shadow:
+        inset 3px 3px 5px #7c2d12,
+        inset -3px -3px 5px #fbbf24;
+      cursor: pointer;
+    }
+    .icon-3d.fab.fa-linkedin-in {
+      background: linear-gradient(145deg, #0ea5e9, #0369a1); /* sky blue */
+      box-shadow:
+        3px 3px 5px #075985,
+        -3px -3px 5px #38bdf8;
+    }
+    .icon-3d.fab.fa-linkedin-in:hover {
+      background: linear-gradient(145deg, #0369a1, #0ea5e9);
+      box-shadow:
+        inset 3px 3px 5px #075985,
+        inset -3px -3px 5px #38bdf8;
+      cursor: pointer;
+    }
+    /* Oval shape for profile image */
+    .profile-oval {
+      border-radius: 70% / 76%;
+      border-width: 2px;
+      border-color: #fbcb0de9; /* amber-500 */
+      box-shadow: 0 10px 15px -3px rgb(0, 0, 0), 0 4px 6px -2px rgba(231, 189, 116, 0.805);
+      width: 180px;
+      height: 180px;
+      object-fit: fill;
+      
+    }
+     .profile-oval:hover {
+      
+      border-color: rgb(81, 252, 255);
+
+     }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <div class="max-w-4xl mx-auto bg-3d-black text-gray-300">
+    <!-- Header -->
+    <header class="text-center mb-4 sm:mb-6">
+      <h1  style="color: rgb(239, 12, 144); font-size: 2.5rem; /* reduced size */
+      padding-top: 0.25rem; /* reduced padding */
+      padding-bottom: 0.25rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      letter-spacing: 0.1em !important;">
+        E L A V A R A S A N   
+      </h1>
+      <p class="text-sm sm:text-base font-light tracking-widest-2 text-gray-400 mt-1" style="letter-spacing: 0.15em;">
+        JAVA DEVELOPER
+      </p>
+      <div class="border-t border-gray-600 mt-3 sm:mt-4"></div>
+    </header>
+
+    <main class="flex flex-col sm:flex-row sm:space-x-8 bg-transparent p-4 rounded-md text-gray-300">
+      <!-- Left column -->
+      <section class="sm:w-1/3 text-sm sm:text-base">
+        <!-- Profile Image with oval shape -->
+        <div >
+          <img  class="profile-oval" src="1746953226264.jpg" />
+        </div>
+        <!-- Contact -->
+        <div class="mb-6" style="padding-top: 20PX;">
+          <h2 class="font-semibold tracking-widest-2 mb-2" style="letter-spacing: 0.15em; color:#f59e0b;">
+            CONTACT
+          </h2>
+          <ul class="space-y-2">
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-phone-square-alt icon-3d"></i>
+              <span>7695949974</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-envelope icon-3d"></i>
+              <span>mselava07@gmail.com</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-map-marker-alt icon-3d"></i>
+              <span>Pudukkottai</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fab fa-linkedin-in icon-3d"></i>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-200">https://www.linkedin.com</a>
+            </li>
+          </ul>
+          <div class="border-b border-gray-600 mt-3"></div>
+        </div>
+        <!-- Skills -->
+        <div class="mb-6">
+          <h2 class="font-semibold tracking-widest-2 mb-2" style="letter-spacing: 0.15em; color:#f59e0b;">
+            SKILLS
+          </h2>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Java</li>
+            <li>Core Java</li>
+            <li>Spring boot</li>
+            <li>OOPS</li>
+            <li>Spring MVC</li>
+            <li>MySQL</li>
+            <li>Hibernate</li>
+            <li>Java Collections</li>
+            <li>REST API</li>
+            <li>GitHub</li>
+            <li>HTML</li>
+            <li>CSS</li>    
+            <li >JavaScript</li>
+            <li>Backend Developer</li>
+            <li>Web Developer</li>
+           
+          </ul>
+          <div class="border-b border-gray-600 mt-3"></div>
+        </div>
+        <!-- Education -->
+        <div class="mb-6">
+          <h2 class="font-semibold tracking-widest-2 mb-2" style="letter-spacing: 0.15em; color:#bca989;">
+            EDUCATION
+          </h2>
+          <p class="font-bold" style="color: rgb(193, 58, 211);">Pre University</p>
+          <p>2020 - 2021</p>
+          <p>M CT RM Higher Secondary school</p>
+          <p>72.66%</p>
+          <br />
+          <p class="font-bold" style="color: rgb(193, 58, 211);">BE - Computer Science</p>
+          <p>2021 - 2025</p>
+          <p>M.I.E.T Engineering college</p>
+          <p>CGPA - 7.60</p>
+          <div class="border-b border-gray-600 mt-3"></div>
+        </div>
+       
+      </section>
+      <!-- Right column -->
+      <section class="sm:w-2/3 mt-6 sm:mt-0 text-sm sm:text-base leading-relaxed">
+        <!-- Profile Summary -->
+        <div>
+          <h2 class="font-semibold tracking-widest-2 mb-2" style="letter-spacing: 0.15em; color:#f59e0b;">
+            PROFILE SUMMARY
+          </h2>
+          <p>
+            Fresher Java Developer with a strong foundation in Java, Spring
+            Boot, SQL, and Data Structures. Eager to apply problem-solving
+            skills and develop efficient, scalable applications. Looking for an
+            opportunity to grow and contribute in a dynamic development team.
+            Eager to contribute to software development projects.
+          </p>
+        </div>
+        <!-- Project -->
+        <div class="mt-6">
+          <h2 class="font-semibold tracking-widest-2 mb-2" style="letter-spacing: 0.15em; color:#f59e0b;">
+            PROJECT
+          </h2>
+          <p class="font-bold mb-1" style="color: rgb(239, 12, 12);">Project - 1</p>
+          <p class="font-bold" style="color: #0f9be0;">Personal Portfolio Website</p>
+          <p class="font-bold mb-2">(HTML, CSS)</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>
+              Designed and developed a responsive website to showcase personal
+              projects, skills, and achievements.
+            </li>
+            <li>
+              Created an interactive layout with sections like About Me,
+              Projects, Skills, and Contact Form.
+            </li>
+            <li>
+              Implemented responsive design using CSS media queries for optimal
+              performance on all devices.
+            </li>
+            <li>
+              Focused on clean, user-friendly UI with consistent color schemes
+              and typography.
+            </li>
+          </ul>
+          <p class="font-bold mb-1" style="color: rgb(239, 12, 12);">Project - 2</p>
+          <p class="font-bold"style="color: #0f9be0;">Hospital Management System</p>
+          <ul class="list-disc list-inside space-y-1">
+            <li>
+              Developed a Hospital Management System using
+              <span class="font-semibold">Java</span> for backend logic and
+              <span class="font-semibold">SQL</span> for database management.
+            </li>
+            <li>
+              Designed a relational database using SQL to store and retrieve data
+              efficiently for patients, doctors, and treatments.
+            </li>
+            <li>
+              Automated patient registration, appointment scheduling, billing,
+              and medical record management.
+            </li>
+            <li>
+              Improved operational efficiency by
+              <span class="font-semibold">50%</span> through optimized data
+              management and streamlined workflows.
+            </li>
+          </ul>
+          <div class="border-b border-gray-600 mt-6"></div>
+        </div>
+        <!-- Additional -->
+        <div class="mt-6">
+          <h2 class="font-semibold tracking-widest-2 mb-2" style="letter-spacing: 0.15em; color:#f59e0b;">
+            ADDITIONAL
+          </h2>
+          <ul class="list-disc list-inside space-y-4">
+            <li>
+              I have attended a 1 day workshop on
+              <span class="font-semibold">UI/UX</span> design and design a
+              webpage in the E-Commerce platform.
+            </li>
+            <li>
+              I have completed 1 month internship in
+              <span class="font-semibold">live Stream Technologies</span>
+              Coimbatore.
+            </li>
+          </ul>
+        </div>
+        <!-- Certification -->
+        <div>
+          <h2 class="font-semibold tracking-widest-2 mb-2" style="letter-spacing: 0.15em; color:#f59e0b;">
+            CERTIFICATION
+          </h2>
+          <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+            <li>
+              certification in core
+              <strong style="color: rgba(255, 187, 0, 0.712);">Java</strong> and
+              <strong style="color: rgba(255, 187, 0, 0.712);">Spring Boot</strong> from
+              <strong style="color: rgb(226, 233, 233);">Infosys Springboard.</strong>
+            </li>
+            <li>
+              certification in
+              <strong style="color: rgba(255, 187, 0, 0.712);">HTML,CSS</strong> and
+              <strong style="color: rgba(255, 187, 0, 0.712);">JavaScript</strong> from
+              <strong style="color: rgb(245, 245, 245);">Infosys Springboard</strong>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="border-t border-gray-600 mt-6"></div>
+    </footer>
+  </div>
+</body>
+</html>
